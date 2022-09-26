@@ -5,7 +5,7 @@ contract.
 
 This contract uses the attributes and image data from
 `0x16F5A35647D6F03D5D3da7b35409D65ba03aF3B2`
-which is the "CryptoPunks Data" contract, deployed by Larva Labs, 8th of Aug 2011.
+which is the "CryptoPunks Data" contract, deployed by Larva Labs, 8th of Aug 2021.
 https://www.larvalabs.com/blog/2021-8-18-18-0/on-chain-cryptopunks
 
 Marketplaces, Wallets and contracts can use this convenient contract to fetch metadata 
