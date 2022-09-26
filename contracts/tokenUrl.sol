@@ -1,9 +1,12 @@
 // SPDX-License-Identifier: MIT
 // CryptoPunks's missing tokenURI function
+// Author: 0xTycoon. Includes Base64 functionality from OpenZeppelin and builds on top of the
+//  on-chain CryptoPunks data contact deployed by Larva Labs
+//  as described here: https://www.larvalabs.com/blog/2021-8-18-18-0/on-chain-cryptopunks
 pragma solidity ^0.8.17;
 
 // Uncomment this line to use console.log
-import "hardhat/console.sol";
+//import "hardhat/console.sol";
 
 contract CryptoPunksTokenUri {
 
