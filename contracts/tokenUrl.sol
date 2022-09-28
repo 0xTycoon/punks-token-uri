@@ -3,6 +3,7 @@
 // Author: 0xTycoon. Includes Base64 functionality from OpenZeppelin and builds on top of the
 //  on-chain CryptoPunks data contact deployed by Larva Labs
 //  as described here: https://www.larvalabs.com/blog/2021-8-18-18-0/on-chain-cryptopunks
+// Version: 0.0.1
 pragma solidity ^0.8.17;
 
 /*
@@ -43,13 +44,16 @@ contract CryptoPunksTokenUri {
     */
     function tokenURI(uint256 _tokenId) external view returns (string memory) {
         require(_tokenId < 10000, "invalid _tokenId");
-        return string(
-        abi.encodePacked(
-        '{\n"description": "CryptoPunks launched as a fixed set of 10,000 items in mid-2017 and became one of the inspirations for the ERC-721 standard. They have been featured in places like The New York Times, Christie',"'",'s of London, Art|Basel Miami, and The PBS NewsHour.",', "\n",
-        '"external_url": "https://cryptopunks.app/cryptopunks/details/',intToString(_tokenId),'",', "\n",
-        '"image": "data:image/svg+xml;base64,', Base64.encode(punksData.punkImageSvg(uint16(_tokenId))), '",', "\n",
-        '"name": "CryptoPunk #',intToString(_tokenId),'",', "\n",
-        '"attributes": ',getAttributes(_tokenId),'', "\n}"
+        return string(abi.encodePacked("data:application/json;base64,",
+        Base64.encode(
+                abi.encodePacked(
+                    '{\n"description": "CryptoPunks launched as a fixed set of 10,000 items in mid-2017 and became one of the inspirations for the ERC-721 standard. They have been featured in places like The New York Times, Christie',"'",'s of London, Art|Basel Miami, and The PBS NewsHour.",', "\n",
+                    '"external_url": "https://cryptopunks.app/cryptopunks/details/',intToString(_tokenId),'",', "\n",
+                    '"image": "data:image/svg+xml;base64,', Base64.encode(punksData.punkImageSvg(uint16(_tokenId))), '",', "\n",
+                    '"name": "CryptoPunk #',intToString(_tokenId),'",', "\n",
+                    '"attributes": ',getAttributes(_tokenId),'', "\n}"
+                )
+            )
         ));
     }
 
