@@ -76,10 +76,10 @@ contract CryptoPunksTokenUri {
         while (pos < buf.length) {
             c = uint8(buf[pos]);
             if (state == 0) {
-                // match alpha-num, 0-1
+                // match starting char to be alpha-num, or "3"
                 if ((c > 64 && c < 91) ||
                     (c > 96 && c < 123) ||
-                    (c > 47)&& c < 58)
+                    (c == 51))
                 {
                     start = pos;
                     state = 1;

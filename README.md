@@ -14,9 +14,9 @@ about each punk. No external websites required.
 
 ### Deployment
 
-Ethereum Mainnet, contract's address: `0x4e776fCbb241a0e0Ea2904d642baa4c7E171a1E9`
+Ethereum Mainnet, contract's address: `0xD8E916C3016bE144eb2907778cf972C4b01645fC`
 
-https://etherscan.io/address/0x4e776fCbb241a0e0Ea2904d642baa4c7E171a1E9#code
+https://etherscan.io/address/0xD8E916C3016bE144eb2907778cf972C4b01645fC#code
 
 
 ### Interface
@@ -109,5 +109,5 @@ function getAttributes(uint256 _tokenId) public view returns (string memory);
 ### Version history
 0.0.0 first release
 0.0.1 changes tokenURI to return payload as a base64 encoded json URI
-0.0.2 bug fix: correctly parse attribute that starts with a number (3D Glasses)
+0.0.2 bug fix: correctly parse attribute starting with a number (3D Glasses)
 
