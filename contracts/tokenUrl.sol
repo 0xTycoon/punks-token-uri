@@ -1,9 +1,9 @@
 // SPDX-License-Identifier: MIT
 // CryptoPunks's missing tokenURI function
-// Author: 0xTycoon. Includes Base64 functionality from OpenZeppelin and builds on top of the
-//  on-chain CryptoPunks data contact deployed by Larva Labs
+// Author: 0xTycoon. Includes Base64 functionality from OpenZeppelin and builds
+//  on top of the on-chain CryptoPunks data contact deployed by Larva Labs
 //  as described here: https://www.larvalabs.com/blog/2021-8-18-18-0/on-chain-cryptopunks
-// Version: 0.0.1
+// Version: 0.0.2
 pragma solidity ^0.8.17;
 
 /*
@@ -36,10 +36,11 @@ contract CryptoPunksTokenUri {
     }
 
     /**
-    * @dev tokenURI gets the metadata about a punk and returns as a JSON formatted string,
-    *   according to the ERC721 schema and OpenSea recommendations. It also embeds the SVG data.
-    *   The attributes and SVG data are fetched form the CryptoPunksData contract, which stores
-    *   all the CryptoPunks metadata on-chain.
+    * @dev tokenURI gets the metadata about a punk and returns as a JSON
+    *   formatted string, according to the ERC721 schema and market
+    *   recommendations. It also embeds the SVG data.
+    *   The attributes and SVG data are fetched form the CryptoPunksData
+    *   contract, which stores all the CryptoPunks metadata on-chain.
     * @param _tokenId the punk id
     */
     function tokenURI(uint256 _tokenId) external view returns (string memory) {
@@ -60,7 +61,8 @@ contract CryptoPunksTokenUri {
     /**
     * @dev parseAttributes returns an array of punk attributes. 8 rows in total
     *   The first row is the Type, and next seven rows are the attributes.
-    *   The values are fetched form the CryptoPunksData contract and then the string is parsed.
+    *   The values are fetched form the CryptoPunksData contract and then the
+    *   string is parsed.
     * @param _tokenId the punk id
     */
     function parseAttributes(uint256 _tokenId) public view returns (string[8] memory) {
@@ -74,8 +76,11 @@ contract CryptoPunksTokenUri {
         while (pos < buf.length) {
             c = uint8(buf[pos]);
             if (state == 0) {
-                // match alpha-num
-                if ((c > 64 && c < 91) || (c > 96 && c < 123)) {
+                // match alpha-num, 0-1
+                if ((c > 64 && c < 91) ||
+                    (c > 96 && c < 123) ||
+                    (c > 47)&& c < 58)
+                {
                     start = pos;
                     state = 1;
                 }

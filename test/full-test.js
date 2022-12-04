@@ -50,6 +50,19 @@ describe("CryptoPunksTokenUri", function () {
       expect(data[0].value).to.equal("Zombie");
       expect(data[1].trait_type).to.equal("Accessory");
       expect(data[1].value).to.equal("Luxurious Beard");
+
+      result = await uri.getAttributes(67);
+      data = JSON.parse(result);
+      // Female 1, Purple Lipstick, Half Shaved, 3D Glasses
+      expect(data[0].trait_type).to.equal("Type");
+      expect(data[0].value).to.equal("Female 1");
+      expect(data[1].trait_type).to.equal("Accessory");
+      expect(data[1].value).to.equal("Purple Lipstick");
+      expect(data[2].trait_type).to.equal("Accessory");
+      expect(data[2].value).to.equal("Half Shaved");
+      expect(data[3].trait_type).to.equal("Accessory");
+      expect(data[3].value).to.equal("3D Glasses");
+
     })
 
     it("tokenURI", async function () {

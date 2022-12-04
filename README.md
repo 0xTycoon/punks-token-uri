@@ -1,5 +1,5 @@
 # The missing tokenURI() for the CryptoPunks
-Version 0.0.1
+Version 0.0.2
 
 This project implements the `tokenURI` function that is missing in the CryptoPunks
 contract.
@@ -108,5 +108,6 @@ function getAttributes(uint256 _tokenId) public view returns (string memory);
 
 ### Version history
 0.0.0 first release
-0.0.1 changes tokenURI to return payload as a base64 encoded json URI 
+0.0.1 changes tokenURI to return payload as a base64 encoded json URI
+0.0.2 bug fix: correctly parse attribute that starts with a number (3D Glasses)
 

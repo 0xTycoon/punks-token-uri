@@ -50,6 +50,9 @@ contract CryptoPunksDataMock {
         if (index == 4513) {
             return "Zombie, Luxurious Beard, Earring, Beanie";
         }
+        if (index == 67) {
+            return "Female 1, Purple Lipstick, Half Shaved, 3D Glasses";
+        }
         return "";
     }
 
